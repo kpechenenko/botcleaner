@@ -1,20 +1,20 @@
-package lru
+package inmemory
 
 import "errors"
 
 type Cache[K comparable, V any] struct {
 	vals     map[K]V
-	used     []K
+	added    []K
 	capacity int
 }
 
 func (c *Cache[K, V]) Set(k K, v V) {
 	if len(c.vals) == c.capacity {
-		delete(c.vals, c.used[0])
-		c.used = c.used[1:]
+		delete(c.vals, c.added[0])
+		c.added = c.added[1:]
 	}
 	c.vals[k] = v
-	c.used = append(c.used, k)
+	c.added = append(c.added, k)
 }
 
 func (c *Cache[K, V]) Get(k K) (V, bool) {
@@ -28,7 +28,7 @@ func New[K comparable, V any](capacity int) (*Cache[K, V], error) {
 	}
 	return &Cache[K, V]{
 		vals:     make(map[K]V),
-		used:     make([]K, 0, capacity),
+		added:    make([]K, 0, capacity),
 		capacity: capacity,
 	}, nil
 }

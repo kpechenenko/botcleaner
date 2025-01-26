@@ -7,7 +7,7 @@ import (
 	"syscall"
 
 	"github.com/kpechenenko/botcleaner/internal/bot"
-	"github.com/kpechenenko/botcleaner/internal/cache/lru"
+	"github.com/kpechenenko/botcleaner/internal/cache/inmemory"
 )
 
 func main() {
@@ -17,9 +17,9 @@ func main() {
 		logger.Error("load config", err)
 		return
 	}
-	c, err := lru.New[string, int](cfg.cacheCapacity)
+	c, err := inmemory.New[string, int](cfg.cacheCapacity)
 	if err != nil {
-		logger.Error("create lru cache", err)
+		logger.Error("create in memory cache", err)
 		return
 	}
 	p := bot.CreateBotParams{

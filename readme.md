@@ -6,6 +6,8 @@ Telegram bot for removing duplicate forwarded message from channels.
 
 I use a personal chat in the demo, but the bot also works for group chat when different people forward same messages.
 
+![demo.gif](assets/demo.gif)
+
 ## Launch
 
 1. Configuration

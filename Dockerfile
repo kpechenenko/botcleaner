@@ -1,6 +1,6 @@
 FROM golang:1.23 AS build
 
-ENV BIN_FILE=/opt/filter-bot/filter-bot
+ENV BIN_FILE=/opt/botcleaner/botcleaner
 ENV CODE_DIR=/go/src
 
 WORKDIR ${CODE_DIR}
@@ -12,8 +12,8 @@ RUN CGO_ENABLED=0 go build -ldflags "$(LDFLAGS)" -o ${BIN_FILE} -mod vendor ${CO
 
 FROM alpine:3.9
 
-LABEL SERVICE="filter-bot"
-ENV BIN_FILE=/opt/filter-bot/filter-bot
+LABEL SERVICE="botcleaner"
+ENV BIN_FILE=/opt/botcleaner/botcleaner
 ENV CODE_DIR=/go/src
 
 WORKDIR ${CODE_DIR}

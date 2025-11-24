@@ -2,13 +2,19 @@
 
 Telegram bot for removing duplicate forwarded message from channels.
 
-## Demo
+### Demo
 
 I use a personal chat in the demo, but the bot also works for group chat when different people forward same messages.
 
 ![demo.gif](assets/demo.gif)
 
-## Launch
+## Installation
+
+```bash
+ make build-img
+ ```
+
+## Usage
 
 1. Configuration
 
@@ -22,3 +28,11 @@ I use a personal chat in the demo, but the bot also works for group chat when di
     ```bash
     make run-img
     ```
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This project is licensed under the MIT License.
